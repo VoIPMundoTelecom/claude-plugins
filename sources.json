@@ -1,0 +1,41 @@
+{
+  "_comment": "Fonte única da verdade: de onde vem cada plugin e o que é recortado. Editar aqui e rodar scripts/sync.py.",
+  "plugins": [
+    {
+      "name": "oh-my-claudecode",
+      "upstream": "https://github.com/Yeachan-Heo/oh-my-claudecode.git",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "description": "Versão enxuta do oh-my-claudecode para o app Claude: 12 skills de método e 19 agentes especialistas. Sem hooks, CLI omc nem servidor MCP.",
+      "author": "oh-my-claudecode contributors",
+      "skills_dir": "skills",
+      "skills": [
+        "verify", "research", "remember", "execute", "tdd", "review",
+        "minimal-code-discipline", "map", "pr", "architecture-survey",
+        "intent", "minimal-prose-discipline"
+      ],
+      "agents_dir": "agents"
+    },
+    {
+      "name": "supabase",
+      "upstream": "https://github.com/supabase/agent-skills.git",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "description": "Skills oficiais da Supabase: guia geral (Auth, RLS, CLI, MCP, migrations, segurança) e boas práticas de Postgres com 31 regras.",
+      "author": "Supabase",
+      "skills_dir": "skills",
+      "skills": ["supabase", "supabase-postgres-best-practices"]
+    },
+    {
+      "name": "vercel",
+      "upstream": "https://github.com/vercel-labs/agent-skills.git",
+      "license": "MIT",
+      "license_file": null,
+      "description": "Skills oficiais da Vercel: React/Next.js, React Native, composição, view transitions, design e escrita web, deploy e otimização na Vercel.",
+      "author": "Vercel",
+      "skills_dir": "skills",
+      "skills": "*"
+    }
+  ],
+  "exclude_globs": ["CHANGELOG.md", "_contributing.md", "_template.md", ".DS_Store"]
+}

@@ -1,0 +1,66 @@
+name: Sincronizar upstreams
+
+# Toda segunda às 09:47 (Brasília) e sob demanda pela aba Actions.
+on:
+  schedule:
+    - cron: "47 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Recortar plugins a partir dos repositórios originais
+        run: python3 -I scripts/sync.py --repo-root .
+
+      - name: Validar estrutura
+        run: python3 -I scripts/validate.py .
+
+      - name: Abrir ou atualizar PR se algo mudou
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Nenhuma mudança nos upstreams."
+            exit 0
+          fi
+
+          BRANCH=sync/upstream
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add -A
+          git commit -q -m "sync: atualização dos upstreams ($(date -u +%F))"
+          git push -f origin "$BRANCH"
+
+          {
+            echo "Atualização automática a partir dos repositórios originais."
+            echo
+            echo "**Antes de aprovar:** confira a varredura abaixo e, se houver ⚙️ código executável ou 🌐 endpoints novos, olhe o diff desses arquivos."
+            echo
+            echo '### Arquivos alterados'
+            echo '```'
+            git diff --stat HEAD~1 HEAD | tail -40
+            echo '```'
+            echo
+            cat SECURITY-SCAN.md
+          } > pr-body.md
+
+          if gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number' | grep -q .; then
+            gh pr edit "$BRANCH" --body-file pr-body.md
+          else
+            gh pr create --base main --head "$BRANCH" \
+              --title "Atualização de plugins ($(date -u +%F))" \
+              --body-file pr-body.md
+          fi

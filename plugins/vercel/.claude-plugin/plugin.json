@@ -1,0 +1,10 @@
+{
+  "name": "vercel",
+  "version": "2026.1009.0",
+  "description": "Skills oficiais da Vercel: React/Next.js, React Native, composição, view transitions, design e escrita web, deploy e otimização na Vercel.",
+  "author": {
+    "name": "Vercel"
+  },
+  "homepage": "https://github.com/vercel-labs/agent-skills",
+  "license": "MIT"
+}

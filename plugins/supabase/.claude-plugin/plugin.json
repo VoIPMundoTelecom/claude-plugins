@@ -1,0 +1,10 @@
+{
+  "name": "supabase",
+  "version": "2026.1009.0",
+  "description": "Skills oficiais da Supabase: guia geral (Auth, RLS, CLI, MCP, migrations, segurança) e boas práticas de Postgres com 31 regras.",
+  "author": {
+    "name": "Supabase"
+  },
+  "homepage": "https://github.com/supabase/agent-skills",
+  "license": "MIT"
+}

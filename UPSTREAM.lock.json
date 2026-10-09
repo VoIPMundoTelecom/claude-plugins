@@ -1,0 +1,46 @@
+{
+  "oh-my-claudecode": {
+    "upstream": "https://github.com/Yeachan-Heo/oh-my-claudecode.git",
+    "commit": "454bae017356ed1d056182cd929b6eb6cf6143ad",
+    "version": "2026.1009.0",
+    "skills": [
+      "verify",
+      "research",
+      "remember",
+      "execute",
+      "tdd",
+      "review",
+      "minimal-code-discipline",
+      "map",
+      "pr",
+      "architecture-survey",
+      "intent",
+      "minimal-prose-discipline"
+    ]
+  },
+  "supabase": {
+    "upstream": "https://github.com/supabase/agent-skills.git",
+    "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+    "version": "2026.1009.0",
+    "skills": [
+      "supabase",
+      "supabase-postgres-best-practices"
+    ]
+  },
+  "vercel": {
+    "upstream": "https://github.com/vercel-labs/agent-skills.git",
+    "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+    "version": "2026.1009.0",
+    "skills": [
+      "composition-patterns",
+      "deploy-to-vercel",
+      "react-best-practices",
+      "react-native-skills",
+      "react-view-transitions",
+      "vercel-cli-with-tokens",
+      "vercel-optimize",
+      "web-design-guidelines",
+      "writing-guidelines"
+    ]
+  }
+}
