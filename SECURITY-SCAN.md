@@ -4,14 +4,14 @@ Gerada por `scripts/sync.py`. Revise antes de aprovar o PR.
 
 ## oh-my-claudecode
 
-Upstream: `https://github.com/Yeachan-Heo/oh-my-claudecode.git` @ `454bae017356`  
+Upstream: `https://github.com/Yeachan-Heo/oh-my-claudecode.git` @ `8262f9f790ee`  
 Skills: 12 · Agentes: 19
 
-Versão: `2026.1009.0`
+Versão: `2026.1012.0`
 
 **Padrões de risco:** nenhum
 
-**Domínios citados:** github.com (2), nodejs.org (1)
+**Domínios citados:** github.com (3), nodejs.org (1)
 
 ## supabase
 
