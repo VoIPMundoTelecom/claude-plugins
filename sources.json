@@ -10,9 +10,18 @@
       "author": "oh-my-claudecode contributors",
       "skills_dir": "skills",
       "skills": [
-        "verify", "research", "remember", "execute", "tdd", "review",
-        "minimal-code-discipline", "map", "pr", "architecture-survey",
-        "intent", "minimal-prose-discipline"
+        "verify",
+        "research",
+        "remember",
+        "execute",
+        "tdd",
+        "review",
+        "minimal-code-discipline",
+        "map",
+        "pr",
+        "architecture-survey",
+        "intent",
+        "minimal-prose-discipline"
       ],
       "agents_dir": "agents"
     },
@@ -24,7 +33,10 @@
       "description": "Skills oficiais da Supabase: guia geral (Auth, RLS, CLI, MCP, migrations, segurança) e boas práticas de Postgres com 31 regras.",
       "author": "Supabase",
       "skills_dir": "skills",
-      "skills": ["supabase", "supabase-postgres-best-practices"]
+      "skills": [
+        "supabase",
+        "supabase-postgres-best-practices"
+      ]
     },
     {
       "name": "vercel",
@@ -35,7 +47,35 @@
       "author": "Vercel",
       "skills_dir": "skills",
       "skills": "*"
+    },
+    {
+      "name": "rea",
+      "upstream": "https://github.com/morluto/rea.git",
+      "ref": "rea-agents-6.5.0",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "description": "REA (Reverse Engineer Anything): engenharia reversa de binários nativos, apps Electron/JS, APK, .NET, firmware e capturas de rede. Skill + servidor MCP rea-agents@6.5.0 fixado. Requer Node 22.19+ e, para análise nativa, Ghidra/Hopper/IDA.",
+      "author": "morluto",
+      "skills_dir": ".agents/skills",
+      "skills": [
+        "reverse-engineer-anything"
+      ],
+      "mcp_servers": {
+        "rea": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "rea-agents@6.5.0",
+            "mcp"
+          ]
+        }
+      }
     }
   ],
-  "exclude_globs": ["CHANGELOG.md", "_contributing.md", "_template.md", ".DS_Store"]
+  "exclude_globs": [
+    "CHANGELOG.md",
+    "_contributing.md",
+    "_template.md",
+    ".DS_Store"
+  ]
 }
