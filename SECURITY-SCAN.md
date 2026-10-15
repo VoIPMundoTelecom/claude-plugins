@@ -11,7 +11,7 @@ Versão: `2026.1009.0`
 
 **Padrões de risco:** nenhum
 
-**Domínios citados:** github.com (2), nodejs.org (1)
+**Domínios citados:** github.com (3), nodejs.org (1)
 
 ## supabase
 
@@ -87,4 +87,18 @@ Versão: `2026.1009.0`
 - `https://nextjs.org/docs/app/api-reference/functions/revalidate-tag` em `skills/vercel-optimize/scripts/check-citations.mjs`
 
 **Arquivos não-texto ignorados:** `deploy-to-vercel/Archive.zip`
+
+## rea
+
+Upstream: `https://github.com/morluto/rea.git` @ `3b79af28e807`  
+Skills: 1 · Agentes: 0
+
+Versão: `2026.1015.0`
+
+**Padrões de risco:** nenhum
+
+**Domínios citados:** github.com (25), learn.chatgpt.com (1)
+
+**🔌 Servidores MCP (executam localmente na máquina de quem instala):**
+- `rea`: `npx -y rea-agents@6.5.0 mcp`
 

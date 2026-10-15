@@ -1,6 +1,6 @@
 {
   "name": "grupo-ivm-plugins",
-  "description": "Plugins do Grupo IVM: recortes revisados de oh-my-claudecode, Supabase e Vercel.",
+  "description": "Plugins do Grupo IVM: recortes revisados de oh-my-claudecode, Supabase, Vercel e REA.",
   "owner": {
     "name": "VoIPMundoTelecom"
   },
@@ -22,6 +22,12 @@
       "source": "./plugins/vercel",
       "description": "Skills oficiais da Vercel: React/Next.js, React Native, composição, view transitions, design e escrita web, deploy e otimização na Vercel.",
       "version": "2026.1009.0"
+    },
+    {
+      "name": "rea",
+      "source": "./plugins/rea",
+      "description": "REA (Reverse Engineer Anything): engenharia reversa de binários nativos, apps Electron/JS, APK, .NET, firmware e capturas de rede. Skill + servidor MCP rea-agents@6.5.0 fixado. Requer Node 22.19+ e, para análise nativa, Ghidra/Hopper/IDA.",
+      "version": "2026.1015.0"
     }
   ]
 }

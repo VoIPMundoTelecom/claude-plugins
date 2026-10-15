@@ -9,7 +9,8 @@ Uso: python3 -I scripts/sync.py [--repo-root .]
 - Gera SECURITY-SCAN.md com a varredura do conteúdo publicado.
 - Atualiza .claude-plugin/marketplace.json.
 
-Nada é executado a partir do código baixado: só arquivos .md/.json são copiados.
+Nada é executado a partir do código baixado. Copia texto e código-fonte (listado
+na varredura); servidores MCP só entram se declarados em sources.json.
 """
 import argparse
 import datetime as dt
@@ -98,7 +99,11 @@ def main():
         for p in cfg["plugins"]:
             name = p["name"]
             src = Path(tmp) / name
-            run(["git", "clone", "-q", "--depth", "1", p["upstream"], str(src)])
+            clone = ["git", "clone", "-q", "--depth", "1"]
+            # "ref" fixa uma tag/branch (ex.: para casar a skill com a versão do servidor MCP).
+            if p.get("ref"):
+                clone += ["--branch", p["ref"]]
+            run(clone + [p["upstream"], str(src)])
             sha = run(["git", "rev-parse", "HEAD"], cwd=src)
             prev = old_lock.get(name, {})
             # Só muda a versão quando o upstream mudou: evita PRs vazios.
@@ -124,6 +129,10 @@ def main():
             if p.get("license_file") and (src / p["license_file"]).is_file():
                 shutil.copy2(src / p["license_file"], dst / "LICENSE")
 
+            # Servidores MCP declarados em sources.json (nunca copiados do upstream).
+            if p.get("mcp_servers"):
+                (dst / ".mcp.json").write_text(json.dumps({"mcpServers": p["mcp_servers"]}, indent=2, ensure_ascii=False) + "\n")
+
             manifest = {
                 "name": name,
                 "version": version,
@@ -134,7 +143,7 @@ def main():
             }
             (dst / ".claude-plugin" / "plugin.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
 
-            lock[name] = {"upstream": p["upstream"], "commit": sha, "version": version, "skills": wanted}
+            lock[name] = {"upstream": p["upstream"], "ref": p.get("ref"), "commit": sha, "version": version, "skills": wanted}
             entries.append({
                 "name": name,
                 "source": f"./plugins/{name}",
@@ -159,13 +168,16 @@ def main():
             if endpoints:
                 report_md.append("\n**🌐 Endpoints chamados pelo código:**")
                 report_md.extend(f"- `{u}` em `{w}`" for w, u in endpoints)
+            if p.get("mcp_servers"):
+                report_md.append("\n**🔌 Servidores MCP (executam localmente na máquina de quem instala):**")
+                report_md.extend(f"- `{k}`: `{v['command']} {' '.join(v.get('args', []))}`" for k, v in p["mcp_servers"].items())
             if report["skipped"]:
                 report_md.append("\n**Arquivos não-texto ignorados:** " + ", ".join(f"`{s}`" for s in report["skipped"]))
             report_md.append("")
 
     market = {
         "name": "grupo-ivm-plugins",
-        "description": "Plugins do Grupo IVM: recortes revisados de oh-my-claudecode, Supabase e Vercel.",
+        "description": "Plugins do Grupo IVM: recortes revisados de oh-my-claudecode, Supabase, Vercel e REA.",
         "owner": {"name": "VoIPMundoTelecom"},
         "plugins": entries,
     }

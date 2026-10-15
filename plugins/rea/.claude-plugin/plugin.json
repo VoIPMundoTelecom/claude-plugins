@@ -1,0 +1,10 @@
+{
+  "name": "rea",
+  "version": "2026.1015.0",
+  "description": "REA (Reverse Engineer Anything): engenharia reversa de binários nativos, apps Electron/JS, APK, .NET, firmware e capturas de rede. Skill + servidor MCP rea-agents@6.5.0 fixado. Requer Node 22.19+ e, para análise nativa, Ghidra/Hopper/IDA.",
+  "author": {
+    "name": "morluto"
+  },
+  "homepage": "https://github.com/morluto/rea",
+  "license": "MIT"
+}

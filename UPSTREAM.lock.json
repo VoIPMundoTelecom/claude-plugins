@@ -20,6 +20,7 @@
   },
   "supabase": {
     "upstream": "https://github.com/supabase/agent-skills.git",
+    "ref": null,
     "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
     "version": "2026.1009.0",
     "skills": [
@@ -29,6 +30,7 @@
   },
   "vercel": {
     "upstream": "https://github.com/vercel-labs/agent-skills.git",
+    "ref": null,
     "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
     "version": "2026.1009.0",
     "skills": [
@@ -41,6 +43,15 @@
       "vercel-optimize",
       "web-design-guidelines",
       "writing-guidelines"
+    ]
+  },
+  "rea": {
+    "upstream": "https://github.com/morluto/rea.git",
+    "ref": "rea-agents-6.5.0",
+    "commit": "3b79af28e80785afce9f5998d8f03289402a1847",
+    "version": "2026.1015.0",
+    "skills": [
+      "reverse-engineer-anything"
     ]
   }
 }
