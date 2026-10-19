@@ -1,8 +1,9 @@
 {
   "oh-my-claudecode": {
     "upstream": "https://github.com/Yeachan-Heo/oh-my-claudecode.git",
-    "commit": "454bae017356ed1d056182cd929b6eb6cf6143ad",
-    "version": "2026.1009.0",
+    "ref": null,
+    "commit": "6688a30e90d7285ff336af2dc5ab4b9709f1a8bc",
+    "version": "2026.1019.0",
     "skills": [
       "verify",
       "research",
