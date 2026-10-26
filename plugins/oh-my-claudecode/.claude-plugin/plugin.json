@@ -1,6 +1,6 @@
 {
   "name": "oh-my-claudecode",
-  "version": "2026.1009.0",
+  "version": "2026.1026.0",
   "description": "Versão enxuta do oh-my-claudecode para o app Claude: 12 skills de método e 19 agentes especialistas. Sem hooks, CLI omc nem servidor MCP.",
   "author": {
     "name": "oh-my-claudecode contributors"
