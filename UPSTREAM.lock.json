@@ -2,8 +2,8 @@
   "oh-my-claudecode": {
     "upstream": "https://github.com/Yeachan-Heo/oh-my-claudecode.git",
     "ref": null,
-    "commit": "7281924d9ac2f4a1db1f1875a1a6c3fd41530cc6",
-    "version": "2026.1109.0",
+    "commit": "dec7e4188c0e3de6b92fb3d734ee5c95326021ed",
+    "version": "2026.1123.0",
     "skills": [
       "verify",
       "research",
@@ -32,8 +32,8 @@
   "vercel": {
     "upstream": "https://github.com/vercel-labs/agent-skills.git",
     "ref": null,
-    "commit": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
-    "version": "2026.1109.0",
+    "commit": "5a37a6329fbad3666c3207392a6a7c0110e92efb",
+    "version": "2026.1123.0",
     "skills": [
       "composition-patterns",
       "deploy-to-vercel",
